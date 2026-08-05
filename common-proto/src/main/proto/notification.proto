@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package fooddelivery.notification;
+
+option java_multiple_files = true;
+option java_package = "com.fooddelivery.grpc.notification";
+option java_outer_classname = "NotificationProto";
+
+
+service NotificationService {
+  rpc SubscribeOrderNotifications (NotifyRequest) returns (stream NotificationStatus);
+}
+
+message NotifyRequest {
+  string order_id = 1;
+  string user_id = 2;
+  string event_type = 3;
+}
+
+message NotificationStatus {
+  string order_id = 1;
+  string channel = 2;
+  string status = 3;
+  int64 timestamp = 4;
+}

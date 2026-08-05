@@ -1,0 +1,14 @@
+server:
+  port: 8084
+
+grpc:
+  server:
+    port: 9094
+
+spring:
+  application:
+    name: delivery-service
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: ${REDIS_PORT:6379}
